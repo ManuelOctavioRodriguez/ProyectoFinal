@@ -8,7 +8,7 @@ from django.contrib.auth import login, logout
 
 def registro(request):
     if request.method == 'POST':
-        form = FormularioRegistro(request.POST)
+        form = FormularioRegistro(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
             perfil = Perfil.objects.create(user=user)

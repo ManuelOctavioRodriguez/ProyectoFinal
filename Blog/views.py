@@ -22,7 +22,7 @@ def detalle_articulo(request, pk):
 @login_required
 def crear_articulo(request):
     if request.method == 'POST':
-        form = FormularioArticulo(request.POST)
+        form = FormularioArticulo(request.POST, request.FILES)
         if form.is_valid():
             articulo = form.save(commit=False)
             articulo.autor = request.user.perfil
