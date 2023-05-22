@@ -1,0 +1,14 @@
+{% extends 'Blog/base.html' %}
+
+{% block content %}
+    <h1>Lista de artículos</h1>
+    {% if articulos %}
+        <ul>
+            {% for articulo in articulos %}
+                <li><a href="{% url 'detalle_articulo' articulo.id %}">{{ articulo.titulo }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay artículos disponibles</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'Blog/base.html' %}
+
+{% block content %}
+    <h1>{{ articulo.titulo }}</h1>
+    <h3>{{ articulo.subtitulo }}</h3>
+    <p>{{ articulo.cuerpo }}</p>
+    <p>Autor: {{ articulo.autor }}</p>
+    <p>Fecha: {{ articulo.fecha }}</p>
+    {% if articulo.imagen %}
+        <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo">
+    {% endif %}
+{% endblock %}

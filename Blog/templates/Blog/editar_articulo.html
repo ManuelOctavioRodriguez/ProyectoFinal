@@ -1,0 +1,9 @@
+{% extends 'Blog/base.html' %}
+
+{% block content %}
+    <h1>Editar artículo</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Guardar cambios">
+    </form>
+{% endblock %}

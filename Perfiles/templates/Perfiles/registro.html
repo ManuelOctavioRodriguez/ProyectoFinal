@@ -1,0 +1,10 @@
+{% extends 'Blog/base.html' %}
+
+{% block content %}
+    <h1>Registro</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="submit" value="Registrarse">
+    </form>
+{% endblock %}
