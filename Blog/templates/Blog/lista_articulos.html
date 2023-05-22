@@ -3,21 +3,30 @@
 
 {% block contenido %}
     <h1>Lista de artículos</h1>
+    <a href="{% url 'crear_articulo' %}">Crear artículo</a>
+    
     {% if articulos %}
-        <ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
             {% for articulo in articulos %}
-                <li><a href="{% url 'detalle_articulo' articulo.id %}">{{ articulo.titulo }}</a></li>
+            <tr>
+                <td>{{ articulo.titulo }}</td>
+                <td><a href="{% url 'detalle_articulo' articulo.id %}">Ver</a></td>
+                <td><a href="{% url 'editar_articulo' pk=articulo.pk %}">Editar</a></td>
+                <td><a href="{% url 'eliminar_articulo' pk=articulo.pk %}">Eliminar</a></td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>No hay artículos disponibles</p>
     {% endif %}
-    
-    <a href="{% url 'crear_articulo' %}">Crear artículo</a>
-    
-    {% for articulo in articulos %}
-        {% if articulo.pk %}
-            <a href="{% url 'editar_articulo' pk=articulo.pk %}">Editar artículo</a>
-        {% endif %}
-    {% endfor %}
 {% endblock contenido %}
