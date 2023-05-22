@@ -35,20 +35,34 @@ def crear_articulo(request):
 @login_required
 def editar_articulo(request, pk):
     articulo = get_object_or_404(Articulo, pk=pk)
-    
+    if request.user != articulo.autor.user:
+        return redirect('detalle_articulo', pk=articulo.pk)
+
     if request.method == 'POST':
-        form = FormularioArticulo(request.POST, instance=articulo)
-        if form.is_valid():
-            articulo = form.save(commit=False)
-            articulo.autor = request.user.perfil
-            articulo.save()
+        formulario = FormularioArticulo(request.POST, instance=articulo)
+        if formulario.is_valid():
+            formulario.save()
             return redirect('detalle_articulo', pk=articulo.pk)
     else:
-        form = FormularioArticulo(instance=articulo)
-    return render(request, 'Blog/editar_articulo.html', {'form': form})
+        formulario = FormularioArticulo(instance=articulo)
+
+    contexto = {
+        'formulario': formulario,
+        'articulo': articulo
+    }
+    return render(request, 'Blog/editar_articulo.html', contexto)
 
 @login_required
 def eliminar_articulo(request, pk):
     articulo = get_object_or_404(Articulo, pk=pk)
-    articulo.delete()
-    return redirect('lista_articulos')
+    if request.user != articulo.autor.user:
+        return redirect('detalle_articulo', pk=articulo.pk)
+
+    if request.method == 'POST':
+        articulo.delete()
+        return redirect('lista_articulos')
+
+    contexto = {
+        'articulo': articulo
+    }
+    return render(request, 'Blog/eliminar_articulo.html', contexto)
