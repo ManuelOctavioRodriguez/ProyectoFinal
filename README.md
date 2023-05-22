@@ -9,7 +9,7 @@
 * Entra en la carpeta que acabas de clonar
 * Para instalar las dependencias corre este comando:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Instrucciones para utilizar el superuser
 
@@ -18,6 +18,5 @@ pip install -r requirements.txt
 
 Acceder con user y password via:
 
-127.0.0.1:8000/admin
-
+`127.0.0.1:8000/admin`
 
