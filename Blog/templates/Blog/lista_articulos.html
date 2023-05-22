@@ -12,4 +12,12 @@
     {% else %}
         <p>No hay artículos disponibles</p>
     {% endif %}
+    
+    <a href="{% url 'crear_articulo' %}">Crear artículo</a>
+    
+    {% for articulo in articulos %}
+        {% if articulo.pk %}
+            <a href="{% url 'editar_articulo' pk=articulo.pk %}">Editar artículo</a>
+        {% endif %}
+    {% endfor %}
 {% endblock contenido %}

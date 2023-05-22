@@ -2,6 +2,7 @@ from django.db import models
 from Perfiles.models import Perfil
 
 class Articulo(models.Model):
+    id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200)
     subtitulo = models.CharField(max_length=200)
     cuerpo = models.TextField()

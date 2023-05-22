@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Articulo
 from .forms import FormularioArticulo
 from django.contrib.auth.decorators import login_required
@@ -21,10 +22,10 @@ def detalle_articulo(request, pk):
 @login_required
 def crear_articulo(request):
     if request.method == 'POST':
-        form = FormularioArticulo(request.POST, request.FILES)
+        form = FormularioArticulo(request.POST)
         if form.is_valid():
             articulo = form.save(commit=False)
-            articulo.autor = request.user
+            articulo.autor = request.user.perfil
             articulo.save()
             return redirect('detalle_articulo', pk=articulo.pk)
     else:
@@ -34,16 +35,17 @@ def crear_articulo(request):
 @login_required
 def editar_articulo(request, pk):
     articulo = get_object_or_404(Articulo, pk=pk)
+    
     if request.method == 'POST':
-        form = FormularioArticulo(request.POST, request.FILES, instance=articulo)
+        form = FormularioArticulo(request.POST, instance=articulo)
         if form.is_valid():
             articulo = form.save(commit=False)
-            articulo.autor = request.user
+            articulo.autor = request.user.perfil
             articulo.save()
             return redirect('detalle_articulo', pk=articulo.pk)
     else:
         form = FormularioArticulo(instance=articulo)
-    return render(request, 'Blog/editar_articulo.html', {'form': form, 'articulo': articulo})
+    return render(request, 'Blog/editar_articulo.html', {'form': form})
 
 @login_required
 def eliminar_articulo(request, pk):
