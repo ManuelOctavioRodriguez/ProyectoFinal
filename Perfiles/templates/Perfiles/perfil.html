@@ -3,8 +3,7 @@
 
 {% block contenido %}
     <h1>Perfil de usuario</h1>
-    <h3>Nombre: {{ usuario.nombre }}</h3>
-    <p>Descripción: {{ usuario.descripcion }}</p>
-    <p>Email: {{ usuario.email }}</p>
-
+    <h3>Nombre: {{ request.user.username }}</h3>
+    <p>Email: {{ request.user.email }}</p>
 {% endblock contenido %}
+
