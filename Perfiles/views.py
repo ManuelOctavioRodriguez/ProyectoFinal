@@ -13,7 +13,7 @@ def registro(request):
             return redirect('perfil')
     else:
         form = FormularioRegistro()
-    return render(request, 'perfiles/registro.html', {'form': form})
+    return render(request, 'Perfiles/registro.html', {'form': form})
 
 @login_required
 def perfil(request):
@@ -24,7 +24,7 @@ def perfil(request):
             return redirect('perfil')
     else:
         form = FormularioPerfil(instance=request.user.perfil)
-    return render(request, 'perfiles/perfil.html', {'form': form})
+    return render(request, 'Perfiles/perfil.html', {'form': form})
 
 def iniciar_sesion(request):
     if request.method == 'POST':
@@ -35,7 +35,7 @@ def iniciar_sesion(request):
             return redirect('perfil')
     else:
         form = AuthenticationForm()
-    return render(request, 'perfiles/iniciar_sesion.html', {'form': form})
+    return render(request, 'Perfiles/iniciar_sesion.html', {'form': form})
 
 @login_required
 def cerrar_sesion(request):
