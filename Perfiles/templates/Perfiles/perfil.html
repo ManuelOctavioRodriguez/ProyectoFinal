@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block contenido %}
-    <h1>Perfil de usuario</h1>
+    <h1>Perfil de Usuario</h1>
     <h3>Nombre: {{ request.user.username }}</h3>
     <p>Email: {{ request.user.email }}</p>
-    {% if request.user.Perfil.avatar %}
-        <img src="{{ request.user.Perfil.avatar.url }}" alt="Avatar">
+    {% if request.user.perfil.avatar %}
+        <img src="{{ request.user.perfil.avatar.url }}" alt="Avatar" style="width: 200px; height: 200px;">
     {% endif %}
 {% endblock contenido %}
-

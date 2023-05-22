@@ -10,10 +10,13 @@ def registro(request):
     if request.method == 'POST':
         form = FormularioRegistro(request.POST, request.FILES)
         if form.is_valid():
-            print("El formulario es válido")
-            user = form.save()
-            print("Usuario guardado:", user)
+            user = form.save(commit=False)
+            user.save()
+
             perfil = Perfil.objects.create(user=user)
+            perfil.avatar = form.cleaned_data['avatar']
+            perfil.save()
+
             login(request, user)
             return redirect('perfil')
         else:

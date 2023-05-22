@@ -13,6 +13,7 @@ class FormularioRegistro(UserCreationForm):
        fields = ['last_name', 'first_name', 'username', 'email', 'password1', 'password2']
 
 class FormularioPerfil(forms.ModelForm):
+    avatar = forms.ImageField(label='Avatar', required=False)
     class Meta:
         model = Perfil
         fields = ('avatar', 'nombre', 'descripcion')

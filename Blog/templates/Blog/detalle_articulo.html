@@ -8,6 +8,7 @@
     <p>Autor: {{ articulo.autor }}</p>
     <p>Fecha: {{ articulo.fecha }}</p>
     {% if articulo.imagen %}
-        <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo">
+        <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo" style="width: 300px; height: auto;">
     {% endif %}
 {% endblock contenido %}
+
