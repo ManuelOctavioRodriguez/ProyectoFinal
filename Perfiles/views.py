@@ -10,10 +10,14 @@ def registro(request):
     if request.method == 'POST':
         form = FormularioRegistro(request.POST, request.FILES)
         if form.is_valid():
+            print("El formulario es válido")
             user = form.save()
+            print("Usuario guardado:", user)
             perfil = Perfil.objects.create(user=user)
             login(request, user)
             return redirect('perfil')
+        else:
+            print("Errores en el formulario:", form.errors)
     else:
         form = FormularioRegistro()
     return render(request, 'Perfiles/registro.html', {'form': form})

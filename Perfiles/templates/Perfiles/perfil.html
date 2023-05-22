@@ -5,5 +5,8 @@
     <h1>Perfil de usuario</h1>
     <h3>Nombre: {{ request.user.username }}</h3>
     <p>Email: {{ request.user.email }}</p>
+    {% if request.user.Perfil.avatar %}
+        <img src="{{ request.user.Perfil.avatar.url }}" alt="Avatar">
+    {% endif %}
 {% endblock contenido %}
 
