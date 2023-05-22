@@ -1,6 +1,7 @@
 {% extends 'Blog/base.html' %}
+{% load static %}
 
-{% block content %}
+{% block contenido %}
     <h1>{{ articulo.titulo }}</h1>
     <h3>{{ articulo.subtitulo }}</h3>
     <p>{{ articulo.cuerpo }}</p>
@@ -9,4 +10,4 @@
     {% if articulo.imagen %}
         <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo">
     {% endif %}
-{% endblock %}
+{% endblock contenido %}

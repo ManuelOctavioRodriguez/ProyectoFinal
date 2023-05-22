@@ -1,6 +1,7 @@
 {% extends 'Blog/base.html' %}
+{% load static %}
 
-{% block content %}
+{% block contenido %}
     <h1>Lista de artículos</h1>
     {% if articulos %}
         <ul>
@@ -11,4 +12,4 @@
     {% else %}
         <p>No hay artículos disponibles</p>
     {% endif %}
-{% endblock %}
+{% endblock contenido %}

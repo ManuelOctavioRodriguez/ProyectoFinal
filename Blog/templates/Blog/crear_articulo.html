@@ -1,9 +1,10 @@
 {% extends 'Blog/base.html' %}
+{% load static %}
 
-{% block content %}
+{% block contenido %}
     <h1>Crear artículo</h1>
     <form method="POST">
         {% csrf_token %}
         <input type="submit" value="Guardar">
     </form>
-{% endblock %}
+{% endblock contenido %}

@@ -16,7 +16,33 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #FFDDF2;
+            }
+            .navbar {
+                margin-bottom: 0;
+            }
+            .navbar-brand {
+                color: rgba(0, 0, 0, 0.5);
+            }
+            .btn-primary,
+            .btn-success {
+                background-color: transparent;
+                border-color: transparent;
+                color: rgba(0, 0, 0, 0.5);
+            }
+            .footer {
+                background-color: #FFDDF2;
+                margin-top: auto;
+                padding: 20px;
+            }
+        </style>
     </head>
 
     <body>
@@ -27,16 +53,13 @@
                 <a class="navbar-brand" href="{% url 'acerca_de' %}">Acerca de mí</a>
                 <a class="navbar-brand" href="{% url 'lista_articulos' %}">Artículos</a>
                 {% if user.is_authenticated %}
-                <div class="dropdown">
+            <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <div style="display: inline-flex;">
                             <span>{{ user.username }}</span>
                         </div>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
-                        </li>
                         <li>
                             <a class="dropdown-item" href="{% url 'cerrar_sesion' %}"><strong>Cerrar Sesión</strong></a>
                         </li>
@@ -52,6 +75,8 @@
 
         <section style="padding:4rem 3rem;">
             {% block contenido %}
+            <h1>Bienvenido al blog</h1>
+            <p>¡Gracias por visitar!</p>
             {% endblock contenido %}
         </section>
 
