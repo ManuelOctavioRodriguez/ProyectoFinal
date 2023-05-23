@@ -17,3 +17,13 @@ class FormularioPerfil(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ('avatar', 'nombre', 'descripcion')
+        
+class FormularioActualizacion(forms.ModelForm):
+    avatar = forms.ImageField(label='Avatar', required=False)
+    username = forms.CharField(label='Nombre de usuario')
+    email = forms.EmailField(label='Correo electrónico')
+    descripcion = forms.CharField(label='Descripción', widget=forms.Textarea, required=False)
+
+    class Meta:
+        model = User
+        fields = ['avatar', 'username', 'email', 'descripcion']

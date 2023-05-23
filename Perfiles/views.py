@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from .forms import FormularioRegistro, FormularioPerfil
+from django.urls import reverse, reverse_lazy
+from .forms import FormularioRegistro, FormularioPerfil, FormularioActualizacion
 from .models import Perfil
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import UpdateView
+
 
 def registro(request):
     if request.method == 'POST':
@@ -53,3 +56,11 @@ def iniciar_sesion(request):
 def cerrar_sesion(request):
     logout(request)
     return redirect('home')
+
+class MiPerfilUpdateView(LoginRequiredMixin, UpdateView):
+    form_class = FormularioActualizacion
+    success_url = reverse_lazy('perfil')
+    template_name = 'Perfiles/editar_perfil.html'
+
+    def get_object(self, queryset=None):
+        return self.request.user
