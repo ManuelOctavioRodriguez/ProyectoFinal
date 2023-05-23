@@ -15,6 +15,7 @@ def registro(request):
 
             perfil = Perfil.objects.create(user=user)
             perfil.avatar = form.cleaned_data['avatar']
+            perfil.descripcion = form.cleaned_data['descripcion']
             perfil.save()
 
             login(request, user)

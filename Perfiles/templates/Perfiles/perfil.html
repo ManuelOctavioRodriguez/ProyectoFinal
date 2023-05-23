@@ -8,4 +8,7 @@
     {% if request.user.perfil.avatar %}
         <img src="{{ request.user.perfil.avatar.url }}" alt="Avatar" style="width: 200px; height: 200px;">
     {% endif %}
+    {% if request.user.perfil.descripcion %}
+    <p>Descripción: {{ request.user.perfil.descripcion }}</p>
+    {% endif %}
 {% endblock contenido %}
