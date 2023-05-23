@@ -5,10 +5,15 @@
 * Crea una carpeta contenedora madre
 * Abre la consola y ubicate en la carpeta madre
 * Crea y activa el ambiente virtual
+`py -m venv entorno_virtual`
+`entorno_virtual\Scripts\activate`
 * Clona este proyecto en la carpeta madre
+`cd..`
+`git --version` (si no está instalado, descargalo)
+`git clone https://github.com/ManuelOctavioRodriguez/ProyectoFinal.git`
 * Entra en la carpeta que acabas de clonar
+`cd ProyectoFinal`
 * Para instalar las dependencias corre este comando:
-
 `pip install -r requirements.txt`
 
 ## Instrucciones para utilizar el superuser
