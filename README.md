@@ -22,5 +22,5 @@ Acceder con user y password via:
 
 ## Video descriptivo
 
-"[Click acá](https://www.awesomescreenshot.com/video/17662266?key=477a6ee77ddb4b735760ab788a9384e2)".
+[Click acá](https://www.awesomescreenshot.com/video/17662266?key=477a6ee77ddb4b735760ab788a9384e2).
 
