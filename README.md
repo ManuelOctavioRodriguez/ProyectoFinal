@@ -31,7 +31,7 @@
 - Username: omnipotente
 - Password: azucar2022
 
-Acceder con user y password via:
+Acceder con user y password vía:
 
 `127.0.0.1:8000/admin`
 
